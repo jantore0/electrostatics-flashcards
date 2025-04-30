@@ -62,10 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let currentCardIndex = 0;
     
-    // Инициализация первой карточки
     updateCard();
     
-    // Переворот карточки
     flashcard.addEventListener('click', flipCard);
     flipBtn.addEventListener('click', flipCard);
     
@@ -73,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         flashcard.classList.toggle('flipped');
     }
     
-    // Навигация по карточкам
     prevBtn.addEventListener('click', showPrevCard);
     nextBtn.addEventListener('click', showNextCard);
     
@@ -101,13 +98,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         cardCounter.textContent = `${currentCardIndex + 1}/${cards.length}`;
         
-        // Сброс переворота при смене карточки
         if (flashcard.classList.contains('flipped')) {
             flashcard.classList.remove('flipped');
         }
     }
     
-    // Ночной режим
     nightModeBtn.addEventListener('click', toggleNightMode);
     
     function toggleNightMode() {
@@ -124,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Обработчики для кнопок режимов изучения
     const modeButtons = document.querySelectorAll('.mode-btn');
     modeButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -134,11 +128,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
-    // Основной код карточек остается
     
-    // Новый функционал:
     
-    // 1. Переключение между разделами
     const navLinks = document.querySelectorAll('.main-nav a');
     const sections = document.querySelectorAll('.content-section');
     
@@ -146,20 +137,16 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Удаляем активный класс у всех ссылок и секций
             navLinks.forEach(l => l.classList.remove('active'));
             sections.forEach(s => s.classList.remove('active-section'));
             
-            // Добавляем активный класс текущей ссылке
             this.classList.add('active');
             
-            // Показываем соответствующую секцию
             const sectionId = this.getAttribute('href');
             document.querySelector(sectionId).classList.add('active-section');
         });
     });
     
-    // 2. Быстрый доступ
     const themeBtn = document.getElementById('theme-btn');
     const bookmarkBtn = document.getElementById('bookmark-btn');
     
@@ -169,25 +156,20 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Карточка добавлена в закладки!');
     });
     
-    // 3. Поиск по карточкам
     const searchInput = document.querySelector('.search-box input');
     searchInput.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase();
-        // Здесь можно добавить логику фильтрации карточек
         console.log('Поиск:', searchTerm);
     });
     
-    // 4. Загрузка дополнительных материалов
     const readButtons = document.querySelectorAll('.read-btn');
     readButtons.forEach(btn => {
         btn.addEventListener('click', function() {
             const cardTitle = this.closest('.theory-card').querySelector('h3').textContent;
             alert(`Открываем материал: "${cardTitle}"`);
-            // В реальном приложении здесь будет переход на страницу материала
         });
     });
     
-    // 5. Имитация прогресса обучения
     setInterval(() => {
         const progressBar = document.querySelector('.progress-bar');
         const currentWidth = parseFloat(progressBar.style.width) || 65;
