@@ -1,0 +1,698 @@
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary: #f72585;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --card-bg: #ffffff;
+  --transition: all 0.3s ease;
+}
+
+/* Базовые стили */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: var(--light);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Современный хедер с градиентом */
+header {
+  background: linear-gradient(135deg, var(--primary), #4895ef);
+  color: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+/* Контейнер с мягкими скругленными углами */
+.container {
+  flex: 1;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Хлебные крошки в стиле минимализм */
+.breadcrumbs {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.breadcrumbs span {
+  color: var(--primary);
+}
+
+/* Заголовок с акцентом */
+h1 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark);
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* Рейтинг с иконкой звезды */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.rating i {
+  color: #ffc107;
+}
+
+/* Кнопки режимов изучения */
+.study-modes {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.mode-btn {
+  background-color: white;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mode-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mode-btn.active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 4px 8px rgba(67, 97, 238, 0.2);
+}
+
+/* Карточка с 3D-эффектом и мягкой тенью */
+.flashcard-container {
+  position: relative;
+  perspective: 1000px;
+  margin-bottom: 2.5rem;
+}
+
+.flashcard {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  background-color: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flashcard-front {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+}
+
+.flashcard-back {
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  transform: rotateY(180deg);
+}
+
+.flashcard h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.flashcard p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: var(--dark);
+  max-width: 90%;
+}
+
+/* Элементы управления карточками */
+.flashcard-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.flashcard-controls button {
+  background-color: white;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: var(--transition);
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.flashcard-controls button:hover {
+  background-color: var(--light-gray);
+  transform: translateY(-1px);
+}
+
+#card-counter {
+  font-weight: 600;
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+/* Кнопка переворота с анимацией */
+.flip-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 8px rgba(67, 97, 238, 0.2);
+  margin-bottom: 2rem;
+}
+
+.flip-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(67, 97, 238, 0.25);
+}
+
+.flip-btn i {
+  transition: transform 0.3s ease;
+}
+
+.flip-btn:hover i {
+  transform: rotate(180deg);
+}
+
+/* Дополнительные опции */
+.additional-options {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.option-btn {
+  background-color: white;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.option-btn:hover {
+  background-color: var(--light-gray);
+  transform: translateY(-1px);
+}
+
+/* Футер с градиентом */
+footer {
+  background: linear-gradient(135deg, var(--primary), #4895ef);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.user-info {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.create-btn {
+  background-color: white;
+  color: var(--primary);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Ночной режим */
+body.dark-mode {
+  --primary: #4895ef;
+  --primary-dark: #4361ee;
+  --light: #121212;
+  --dark: #f8f9fa;
+  --gray: #adb5bd;
+  --light-gray: #343a40;
+  --card-bg: #1e1e1e;
+}
+
+.dark-mode header,
+.dark-mode footer {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+.dark-mode .flashcard-front {
+  background: linear-gradient(135deg, #2d2d2d, #1e1e1e);
+}
+
+.dark-mode .flashcard-back {
+  background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+}
+
+.dark-mode .mode-btn,
+.dark-mode .flashcard-controls button,
+.dark-mode .option-btn {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #f8f9fa;
+}
+
+.dark-mode .mode-btn:hover,
+.dark-mode .flashcard-controls button:hover,
+.dark-mode .option-btn:hover {
+  background-color: #3a3a3a;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .flashcard {
+    height: 300px;
+    padding: 1.5rem;
+  }
+  
+  .flashcard h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .flashcard p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header, footer {
+    padding: 1rem;
+  }
+  
+  .flashcard {
+    height: 250px;
+    padding: 1rem;
+  }
+  
+  .flashcard-controls button {
+    padding: 0.5rem 1rem;
+  }
+  
+  .flip-btn {
+    padding: 0.75rem;
+  }
+}
+/* Новые стили для добавленных элементов */
+
+/* Быстрый доступ */
+.quick-access {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.quick-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.quick-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Хедер с изображением */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Навигация */
+.main-nav {
+    background: white;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    flex: 1;
+    text-align: center;
+}
+
+.main-nav a {
+    display: block;
+    padding: 1rem;
+    color: var(--gray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
+}
+
+/* Секции контента */
+.content-section {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.content-section.active-section {
+    display: block;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.search-box {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.search-box input {
+    border: none;
+    padding: 0.75rem 1rem;
+    min-width: 250px;
+    outline: none;
+}
+
+.search-box button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+/* Карточка статистики */
+.stats-card {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* Прогресс бар */
+.progress-container {
+    background: white;
+    border-radius: 8px;
+    height: 12px;
+    margin-top: 2rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+/* Теоретические материалы */
+.theory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.theory-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.theory-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.theory-card h3 {
+    margin: 1rem 1.5rem 0.5rem;
+    color: var(--dark);
+}
+
+.theory-card p {
+    margin: 0 1.5rem 1.5rem;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+.read-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    margin: 0 1.5rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.read-btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Футер */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.footer-section h3 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-section p, .footer-section a {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-section a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+}

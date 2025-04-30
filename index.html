@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электростатика - Интерактивные карточки</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Новое: Кнопка быстрого доступа -->
+    <div class="quick-access">
+        <button class="quick-btn" id="bookmark-btn"><i class="fas fa-bookmark"></i></button>
+        <button class="quick-btn" id="theme-btn"><i class="fas fa-moon"></i></button>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-group">
+                <div class="logo">Электростатика</div>
+                <div class="subtitle">Интерактивное обучение</div>
+            </div>
+            <img src="https://science4fun.info/wp-content/uploads/2018/10/electrostatics.jpg" alt="Электростатика" class="header-image">
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#cards" class="active"><i class="fas fa-layer-group"></i> Карточки</a></li>
+                <li><a href="#theory"><i class="fas fa-book-open"></i> Теория</a></li>
+                <li><a href="#practice"><i class="fas fa-tasks"></i> Практика</a></li>
+                <li><a href="#videos"><i class="fas fa-video"></i> Видео</a></li>
+                <li><a href="#progress"><i class="fas fa-chart-line"></i> Прогресс</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Блок с карточками (основной контент) -->
+        
+        <!-- Новый раздел: Теория -->
+        <section id="theory" class="content-section">
+            <div class="section-header">
+                <h1><i class="fas fa-book-open"></i> Теоретические материалы</h1>
+            </div>
+            
+            <div class="theory-grid">
+                <div class="theory-card">
+                    <img src="https://www.physicsclassroom.com/getattachment/Physics-Classroom/Physics-Tutorial/Static-Electricity/static-tn.png" alt="Статическое электричество">
+                    <h3>Основные понятия</h3>
+                    <p>Заряды, проводники, диэлектрики, закон сохранения заряда</p>
+                    <button class="read-btn">Читать <i class="fas fa-arrow-right"></i></button>
+                </div>
+                
+                <div class="theory-card">
+                    <img src="https://www.physicsclassroom.com/getattachment/Physics-Classroom/Physics-Tutorial/Static-Electricity/Coulomb-s-Law/coulomb3.png" alt="Закон Кулона">
+                    <h3>Закон Кулона</h3>
+                    <p>Формулировка, формула, примеры применения</p>
+                    <button class="read-btn">Читать <i class="fas fa-arrow-right"></i></button>
+                </div>
+                
+                <div class="theory-card">
+                    <img src="https://www.physicsclassroom.com/getattachment/Physics-Classroom/Physics-Tutorial/Static-Electricity/Electric-Fields/electric-field-lines-5.png" alt="Электрическое поле">
+                    <h3>Электрическое поле</h3>
+                    <p>Напряжённость, потенциал, силовые линии</p>
+                    <button class="read-btn">Читать <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Новый раздел: Практика -->
+        <section id="practice" class="content-section">
+            <!-- Содержимое раздела практики -->
+        </section>
+
+        <!-- Новый раздел: Видео -->
+        <section id="videos" class="content-section">
+            <!-- Содержимое раздела видео -->
+        </section>
+
+        <!-- Новый раздел: Прогресс -->
+        <section id="progress" class="content-section">
+            <!-- Содержимое раздела прогресса -->
+        </section>
+
+        <section id="cards" class="content-section active-section">
+            <div class="section-header">
+                <h1><i class="fas fa-layer-group"></i> Учебные карточки</h1>
+                <div class="search-box">
+                    <input type="text" placeholder="Поиск по карточкам..." id="search-input">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        
+            <div class="stats-card">
+                <div class="stat-item">
+                    <div class="stat-value" id="learned-count">0/10</div>
+                    <div class="stat-label">Изучено</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="correct-answers">0%</div>
+                    <div class="stat-label">Правильно</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="streak-days">0д</div>
+                    <div class="stat-label">Стрик</div>
+                </div>
+            </div>
+        
+            <!-- Восстановленный блок карточек -->
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="flashcard-front">
+                        <h2>Загрузка...</h2>
+                        <p>Подготовка карточек</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <h2>Загрузка...</h2>
+                        <p>Подготовка материалов</p>
+                    </div>
+                </div>
+        
+                <div class="flashcard-controls">
+                    <button id="prev-btn"><i class="fas fa-arrow-left"></i> Назад</button>
+                    <span id="card-counter">1/10</span>
+                    <button id="next-btn">Вперёд <i class="fas fa-arrow-right"></i></button>
+                </div>
+        
+                <div class="flashcard-actions">
+                    <button id="flip-btn" class="flip-btn"><i class="fas fa-sync-alt"></i> Перевернуть</button>
+                    <button id="know-btn" class="know-btn"><i class="fas fa-check"></i> Знаю</button>
+                    <button id="dont-know-btn" class="dont-know-btn"><i class="fas fa-times"></i> Не знаю</button>
+                </div>
+            </div>
+        
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                <div class="progress-text" id="progress-text">0% материала изучено</div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Электростатика</h3>
+                <p>Интерактивное обучение физике</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Быстрые ссылки</h3>
+                <ul>
+                    <li><a href="#">Все темы</a></li>
+                    <li><a href="#">Тесты</a></li>
+                    <li><a href="#">Методички</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Поддержка</h3>
+                <ul>
+                    <li><a href="#">Помощь</a></li>
+                    <li><a href="#">Обратная связь</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2023 Электростатика. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
